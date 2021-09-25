@@ -5,7 +5,6 @@
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <link href="\tailwind.css" rel="stylesheet" />
-          <link href="\custom.css" rel="stylesheet" />
           <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
           <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
           <script defer src="https://unpkg.com/alpinejs@3.2.4/dist/cdn.min.js"></script>
@@ -20,12 +19,24 @@
                     <div class="max-w-7xl mx-auto flex flex-row">
                          <!-- Div 1 butoane -->
                          <div class="w-1/12 flex flex-col items-center justify-start space-y-3">
-                              <h1 class="text-white text-xl font-bold mb-2">Text Color</h1>
-                              <button x-on:click="textColor = 2" class="bg-green-600 hover:opacity-70 border border-black w-6 h-6 rounded-full inline-block transform"></button>
-                              <button x-on:click="textColor = 3" class="bg-yellow-400 hover:opacity-70 border border-black w-6 h-6 rounded-full inline-block"></button>
-                              <button x-on:click="textColor = 4" class="bg-red-600 hover:opacity-70 border border-black w-6 h-6 rounded-full inline-block"></button>
-                              <button x-on:click="textColor = 5" class="bg-purple-600 hover:opacity-70 border border-black w-6 h-6 rounded-full inline-block"></button>
-
+                              <h1 class="text-white text-xl font-bold mb-2">
+                                   Text
+                                   <em
+                                        class="not-italic"
+                                        :class="{'text-green-500': textColor === 2, 'text-yellow-400': textColor === 3, 'text-red-600': textColor === 4, 'text-purple-400': textColor === 5, 'text-blue-500': textColor === 6, 'text-pink-500': textColor === 7}"
+                                        >Color</em
+                                   >
+                              </h1>
+                              <div>
+                                   <div>
+                                        <button x-on:click="textColor = 2" class="bg-green-600 hover:opacity-70 border border-black w-6 h-6 rounded-full inline-block transform"></button>
+                                        <button x-on:click="textColor = 3" class="bg-yellow-500 hover:opacity-70 border border-black w-6 h-6 rounded-full inline-block"></button>
+                                        <button x-on:click="textColor = 6" class="bg-blue-700 hover:opacity-70 border border-black w-6 h-6 rounded-full inline-block"></button>
+                                   </div>
+                                   <button x-on:click="textColor = 4" class="bg-red-600 hover:opacity-70 border border-black w-6 h-6 rounded-full inline-block"></button>
+                                   <button x-on:click="textColor = 5" class="bg-purple-600 hover:opacity-70 border border-black w-6 h-6 rounded-full inline-block"></button>
+                                   <button x-on:click="textColor = 7" class="bg-pink-500 hover:opacity-70 border border-black w-6 h-6 rounded-full inline-block"></button>
+                              </div>
                               <h1 class="text-white text-xl font-bold mb-2 text-center">Text Weight</h1>
                               <button @click="grosime+=100" class="text-gray-100 text-xl font-bold bg-purple-900 hover:opacity-70 p-1 rounded-md mt-2 pl-3 pr-3 inline-block">
                                    <i class="fas fa-chevron-circle-up"></i>
@@ -41,7 +52,7 @@
                                    <p
                                         class="w-auto h-auto rounded-lg p-4 mt-10 mb-5 mx-8 text-white"
                                         id="pd"
-                                        :class="{'text-green-500': textColor === 2, 'text-yellow-400': textColor === 3, 'text-red-600': textColor === 4, 'text-purple-400': textColor === 5}"
+                                        :class="{'text-green-500': textColor === 2, 'text-yellow-400': textColor === 3, 'text-red-600': textColor === 4, 'text-purple-400': textColor === 5, 'text-blue-500': textColor === 6, 'text-pink-500': textColor === 7}"
                                         :style="`font-size:${count}px`"
                                    >
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus sapiente iste iure magni dolorem, eius optio quia mollitia, facere porro non illo cupiditate libero sunt, quasi perspiciatis. Deserunt,
