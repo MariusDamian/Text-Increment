@@ -7,6 +7,15 @@ function adauga() {
      inputd.value = "";
 }
 
+function adauga2() {
+     if (inputd.value === "") {
+          alert("Please insert text");
+     } else {
+          pd.innerHTML = "" + inputd.value;
+          inputd.value = "";
+     }
+}
+
 function sterge() {
      pd.innerHTML = "";
 }
