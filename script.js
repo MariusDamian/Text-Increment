@@ -1,6 +1,7 @@
 let pd = document.getElementById("pd");
 let inputd = document.getElementById("inputd");
 let btnd = document.getElementById("btnd");
+let asd = 'Test aici';
 
 function adauga() {
      if (inputd.value === "") {
@@ -14,3 +15,5 @@ function adauga() {
 function sterge() {
      pd.innerHTML = "";
 }
+
+

@@ -1,134 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-     <head>
-          <meta charset="UTF-8" />
-          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <link href="\tailwind.css" rel="stylesheet" />
-          <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
-          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
-          <script defer src="https://unpkg.com/alpinejs@3.2.4/dist/cdn.min.js"></script>
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-          <title>Text increment</title>
-     </head>
-     <body class="bg-black" style="font-family: 'inter', sans-serif">
-          <div x-data="{textColor: 1, textSize: 1, count:16, grosime:500}" class="h-screen bg-cover" style="background-image: url(Media/bg.jpg)">
-               <div class="bg-black bg-opacity-50 h-screen w-screen">
-                    <div class="max-w-7xl mx-auto flex flex-row">
-                         <!-- Div 1 butoane -->
-                         <div class="w-1/12 flex flex-col items-center justify-start space-y-3">
-                              <h1 class="text-white text-xl font-bold mb-2">
-                                   Text
-                                   <em
-                                        class="not-italic"
-                                        :class="{'text-green-500': textColor === 2, 'text-yellow-400': textColor === 3, 'text-red-600': textColor === 4, 'text-purple-400': textColor === 5, 'text-blue-500': textColor === 6, 'text-pink-500': textColor === 7}"
-                                        >Color</em
-                                   >
-                              </h1>
-                              <div>
-                                   <div>
-                                        <button x-on:click="textColor = 2" class="bg-green-600 hover:opacity-70 border border-black w-6 h-6 rounded-full inline-block transform"></button>
-                                        <button x-on:click="textColor = 3" class="bg-yellow-500 hover:opacity-70 border border-black w-6 h-6 rounded-full inline-block"></button>
-                                        <button x-on:click="textColor = 6" class="bg-blue-700 hover:opacity-70 border border-black w-6 h-6 rounded-full inline-block"></button>
-                                   </div>
-                                   <button x-on:click="textColor = 4" class="bg-red-600 hover:opacity-70 border border-black w-6 h-6 rounded-full inline-block"></button>
-                                   <button x-on:click="textColor = 5" class="bg-purple-600 hover:opacity-70 border border-black w-6 h-6 rounded-full inline-block"></button>
-                                   <button x-on:click="textColor = 7" class="bg-pink-500 hover:opacity-70 border border-black w-6 h-6 rounded-full inline-block"></button>
-                              </div>
-                              <h1 class="text-white text-xl font-bold mb-2 text-center">Text Weight</h1>
-                              <button @click="grosime+=100" class="text-gray-100 text-xl font-bold bg-purple-900 hover:opacity-70 p-1 rounded-md mt-2 pl-3 pr-3 inline-block">
-                                   <i class="fas fa-chevron-circle-up"></i>
-                              </button>
-                              <button @click="grosime-=100" class="text-gray-100 text-xl font-bold bg-purple-900 hover:opacity-70 p-1 rounded-md mt-2 pl-3 pr-3 inline-block">
-                                   <i class="fas fa-chevron-circle-down"></i>
-                              </button>
-                         </div>
-                         <!-- Div 2 Text -->
-                         <div class="flex flex-col items-center justify-center w-10/12">
-                              <!-- Textul -->
-                              <div :style="`font-weight:${grosime}`">
-                                   <p
-                                        class="w-auto h-auto rounded-lg p-4 mt-10 mb-5 mx-8 text-white"
-                                        id="pd"
-                                        :class="{'text-green-500': textColor === 2, 'text-yellow-400': textColor === 3, 'text-red-600': textColor === 4, 'text-purple-400': textColor === 5, 'text-blue-500': textColor === 6, 'text-pink-500': textColor === 7}"
-                                        :style="`font-size:${count}px`"
-                                   >
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus sapiente iste iure magni dolorem, eius optio quia mollitia, facere porro non illo cupiditate libero sunt, quasi perspiciatis. Deserunt,
-                                        repudiandae vero?<br /><br />Laboriosam vel, quidem nobis iste, ad sapiente vitae sint ipsa voluptas quas excepturi distinctio error eaque sit labore! Quisquam, deserunt illo? Eos quas voluptatum accusamus,
-                                        nostrum quos ducimus veritatis ea? <br /><br />
-                                        Sed quibusdam recusandae alias error harum maxime adipisci amet laborum. Perspiciatis minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit quibusdam sed amet tempora. Sit laborum ab, eius
-                                        fugit doloribus tenetur fugiat, temporibus enim commodi!
-                                   </p>
-                              </div>
-                              <!-- Text Form -->
-                              <div>
-                                   <textarea
-                                        id="inputd"
-                                        rows="5"
-                                        name="message"
-                                        id="message"
-                                        placeholder="Your Text"
-                                        class="
-                                             h-24
-                                             w-96
-                                             px-3
-                                             py-2
-                                             placeholder-gray-600
-                                             border border-gray-300
-                                             rounded-md
-                                             focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300
-                                             dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500
-                                             font-semibold
-                                        "
-                                        required
-                                   ></textarea>
-
-                                   <!-- Div butoane ADD / Remove -->
-                                   <div class="flex flex-row items-center justify-center space-x-3">
-                                        <button onclick="adauga()" id="btnd" class="px-5 py-2.5 relative rounded group font-medium text-white inline-block">
-                                             <span class="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-purple-600 to-blue-500"></span>
-                                             <span class="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-purple-600 to-blue-500"></span>
-                                             <span class="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-purple-600 to-blue-500"></span>
-                                             <span class="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-purple-600 from-blue-500"></span>
-                                             <span class="relative">Add Text</span>
-                                        </button>
-                                        <button onclick="sterge()" id="btnd" class="px-5 py-2.5 relative rounded group font-medium text-white inline-block">
-                                             <span class="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-purple-600 to-blue-500"></span>
-                                             <span class="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-purple-600 to-blue-500"></span>
-                                             <span class="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-purple-600 to-blue-500"></span>
-                                             <span class="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-purple-600 from-blue-500"></span>
-                                             <span class="relative">Delete Text</span>
-                                        </button>
-                                        <button x-on:click="textColor = 1, textSize = 1, count = 16, grosime=500" class="px-5 py-2.5 relative rounded group font-medium text-white inline-block">
-                                             <span class="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-purple-600 to-blue-500"></span>
-                                             <span class="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-purple-600 to-blue-500"></span>
-                                             <span class="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-purple-600 to-blue-500"></span>
-                                             <span class="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-purple-600 from-blue-500"></span>
-                                             <span class="relative">Reset Style</span>
-                                        </button>
-                                   </div>
-                              </div>
-                         </div>
-                         <!-- Div 3 butoane -->
-                         <div class="w-1/12 flex flex-col items-center justify-start space-y-3">
-                              <h1 class="text-white text-xl font-bold">Text Size</h1>
-                              <p x-text="`${count} Pixels`" class="text-white text-lg font-bold"></p>
-                              <button @click="count+=0.5" class="text-gray-100 text-xl font-bold bg-purple-900 hover:opacity-70 p-1 rounded-md mt-2 pl-3 pr-3 inline-block">
-                                   <i class="fas fa-chevron-circle-up"></i>
-                              </button>
-                              <button @click="count-=0.5" class="text-gray-100 text-xl font-bold bg-purple-900 hover:opacity-70 p-1 rounded-md mt-2 pl-3 pr-3 inline-block">
-                                   <i class="fas fa-chevron-circle-down"></i>
-                              </button>
-                              <button x-on:click="count = 14" class="hover:opacity-70 text-xl ml-2 rounded-md text-white font-bold w-14 h-7 inline-block transform">Small</button>
-                              <button x-on:click="count = 18" class="hover:opacity-70 text-xl rounded-md text-white font-bold w-14 h-7 inline-block">Med</button>
-                              <button x-on:click="count = 20" class="hover:opacity-70 text-xl rounded-md text-white font-bold w-16 h-7 inline-block">Big</button>
-                         </div>
-                    </div>
-               </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="\tailwind.css" rel="stylesheet" />
+    <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <script defer src="https://unpkg.com/alpinejs@3.2.4/dist/cdn.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <title>Text editor</title>
+  </head>
+  <body class="bg-black text-white" style="font-family: 'inter', sans-serif">
+    <div x-data="{textColor: 1, textSize: 1, count:16, grosime:500}" class="h-screen bg-cover" style="background-image: url(Media/bg.jpg)">
+      <div class="bg-black bg-opacity-50 h-screen w-screen">
+        <div class="max-w-7xl mx-auto flex flex-row">
+          <!-- Div 1 butoane -->
+          <div class="w-1/12 flex flex-col items-center justify-start space-y-3">
+            <h1 class="text-xl font-bold mb-2">
+              Text
+              <em class="not-italic" :class="{'text-green-500': textColor === 2, 'text-yellow-400': textColor === 3, 'text-red-600': textColor === 4, 'text-purple-400': textColor === 5, 'text-blue-500': textColor === 6, 'text-pink-500': textColor === 7}">Color</em>
+            </h1>
+            <div>
+              <div>
+                <button x-on:click="textColor = 2" class="bg-green-600 hover:opacity-70 border border-black w-6 h-6 rounded-full inline-block transform"></button>
+                <button x-on:click="textColor = 3" class="bg-yellow-500 hover:opacity-70 border border-black w-6 h-6 rounded-full inline-block"></button>
+                <button x-on:click="textColor = 6" class="bg-blue-700 hover:opacity-70 border border-black w-6 h-6 rounded-full inline-block"></button>
+              </div>
+              <button x-on:click="textColor = 4" class="bg-red-600 hover:opacity-70 border border-black w-6 h-6 rounded-full inline-block"></button>
+              <button x-on:click="textColor = 5" class="bg-purple-600 hover:opacity-70 border border-black w-6 h-6 rounded-full inline-block"></button>
+              <button x-on:click="textColor = 7" class="bg-pink-500 hover:opacity-70 border border-black w-6 h-6 rounded-full inline-block"></button>
+            </div>
+            <h1 class="text-xl font-bold mb-2 text-center">Text Weight</h1>
+            <p class="text-lg font-bold" x-text="grosime"></p>
+            <button @click="grosime < 900 ? grosime+=100 : null" class="text-gray-100 text-xl font-bold bg-purple-900 hover:opacity-70 p-1 rounded-md mt-2 pl-3 pr-3 inline-block">
+              <i class="fas fa-chevron-circle-up"></i>
+            </button>
+            <button @click="grosime > 100 ? grosime-=100 : null" class="text-gray-100 text-xl font-bold bg-purple-900 hover:opacity-70 p-1 rounded-md mt-2 pl-3 pr-3 inline-block">
+              <i class="fas fa-chevron-circle-down"></i>
+            </button>
           </div>
+          <!-- Div 2 Text -->
+          <div class="flex flex-col items-center justify-center w-10/12">
+            <!-- Textul -->
+            <div :style="`font-weight:${grosime}`" class="min-h-[350px]">
+              <p class="w-auto h-auto rounded-lg p-4 mt-10 mb-5 mx-8" id="pd" :class="{'text-green-500': textColor === 2, 'text-yellow-400': textColor === 3, 'text-red-600': textColor === 4, 'text-purple-400': textColor === 5, 'text-blue-500': textColor === 6, 'text-pink-500': textColor === 7}" :style="`font-size:${count}px`">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus sapiente iste iure magni dolorem, eius optio quia mollitia, facere porro non illo cupiditate libero sunt, quasi perspiciatis. Deserunt, repudiandae vero?<br /><br />Laboriosam vel, quidem nobis iste, ad sapiente vitae sint ipsa voluptas quas excepturi distinctio error eaque sit labore! Quisquam, deserunt illo? Eos
+                quas voluptatum accusamus, nostrum quos ducimus veritatis ea? <br /><br />
+                Sed quibusdam recusandae alias error harum maxime adipisci amet laborum. Perspiciatis minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit quibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur fugiat, temporibus enim commodi!
+              </p>
+            </div>
+            <!-- Text Form -->
+            <div>
+              <textarea
+                id="inputd"
+                rows="5"
+                name="message"
+                id="message"
+                placeholder="Your Text"
+                class="h-24 w-96 text-black px-3 py-2 placeholder-gray-600 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark: dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500 font-semibold"
+                required
+              ></textarea>
 
-          <script src="script.js"></script>
-     </body>
+              <!-- Div butoane ADD / Remove -->
+              <div class="flex flex-row items-center justify-center space-x-3">
+                <button onclick="adauga()" id="btnd" class="px-5 py-2.5 relative rounded group font-medium inline-block">
+                  <span class="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-purple-600 to-blue-500"></span>
+                  <span class="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-purple-600 to-blue-500"></span>
+                  <span class="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-purple-600 to-blue-500"></span>
+                  <span class="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-purple-600 from-blue-500"></span>
+                  <span class="relative">Add Text</span>
+                </button>
+                <button onclick="sterge()" id="btnd" class="px-5 py-2.5 relative rounded group font-medium inline-block">
+                  <span class="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-purple-600 to-blue-500"></span>
+                  <span class="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-purple-600 to-blue-500"></span>
+                  <span class="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-purple-600 to-blue-500"></span>
+                  <span class="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-purple-600 from-blue-500"></span>
+                  <span class="relative">Delete Text</span>
+                </button>
+                <button x-on:click="textColor = 1, textSize = 1, count = 16, grosime=500" class="px-5 py-2.5 relative rounded group font-medium inline-block">
+                  <span class="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-purple-600 to-blue-500"></span>
+                  <span class="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-purple-600 to-blue-500"></span>
+                  <span class="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-purple-600 to-blue-500"></span>
+                  <span class="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-purple-600 from-blue-500"></span>
+                  <span class="relative">Reset Style</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Div 3 butoane -->
+          <div class="w-1/12 flex flex-col items-center justify-start space-y-3">
+            <h1 class="text-xl font-bold">Text Size</h1>
+            <p x-text="`${count} Pixels`" class="text-lg font-bold"></p>
+            <button @click="count+=0.5" class="text-gray-100 text-xl font-bold bg-purple-900 hover:opacity-70 p-1 rounded-md mt-2 pl-3 pr-3 inline-block">
+              <i class="fas fa-chevron-circle-up"></i>
+            </button>
+            <button @click="count-=0.5" class="text-gray-100 text-xl font-bold bg-purple-900 hover:opacity-70 p-1 rounded-md mt-2 pl-3 pr-3 inline-block">
+              <i class="fas fa-chevron-circle-down"></i>
+            </button>
+            <button x-on:click="count = 14" class="hover:opacity-70 text-xl ml-2 rounded-md font-bold w-14 h-7 inline-block transform">Small</button>
+            <button x-on:click="count = 18" class="hover:opacity-70 text-xl rounded-md font-bold w-14 h-7 inline-block">Med</button>
+            <button x-on:click="count = 20" class="hover:opacity-70 text-xl rounded-md font-bold w-16 h-7 inline-block">Big</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
